@@ -2,7 +2,7 @@
 
 from matplotlib import cm
 from matplotlib.colors import rgb2hex
-from matplotlib import __version__
+from matplotlib import __version__ as mplVersion
 
 
 def main():
@@ -21,7 +21,7 @@ def make_palette(palette):
     with open(palette.filename, 'w') as f:
         f.write('GIMP Palette\n')
         f.write('Name: ' + palette.name + '\n')
-        f.write('# From matplotlib ' + __version__ + '\n')
+        f.write('# From matplotlib ' + mplVersion + '\n')
         for color in palette.cmap.colors:
             R, G, B = [int(round(x * 255)) for x in color]
             f.write('{0:3d} {1:3d} {2:3d}  {3:s}\n'.format(R, G, B,
